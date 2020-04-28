@@ -1,24 +1,75 @@
-﻿
+﻿@model User
+
 @{
     ViewData["Title"] = "Registration";
 }
 
-<h1>Registration 613</h1>
-@using (Html.BeginForm("Registration", "Home"))
-{
-<label>First Name:</label>
-<input type="text" name="fname" maxlength="20" />
-<br />
 
-<label>Last Name:</label>
-<input type="text" name="lname" maxlength="20" />
-<br />
-<label>Email:</label>
-<input type="text" name="email" />
-<br />
-<label>Password:</label>
-<input type="text" name="password" maxlength="20" />
-<br />
-<input type="submit" value="Submit" />
-}
+<style>
+    .red {
+        color: red;
+    }
+
+    .red-bg {
+        background-color: #FF9999;
+    }
+</style>
+
+<h1>Registration</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Registration" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+
+                <label class="control-label" for="FirstName" id="fNameLabel">First Name</label>
+                <input class="form-control" type="text" id="fName" name="fName" value="" />
+                <span class="text-danger field-validation-valid" id="fNameFeedback"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="LastName" id="lNameLabel">Last Name</label>
+                <input class="form-control" type="text" id="lName" name="lName" value="" />
+                <span class="text-danger field-validation-valid" id="lNameFeedback"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Email" id="emailLabel">Email</label>
+                <input class="form-control" type="text" id="Email" name="Email" value="" />
+                <span class="text-danger field-validation-valid" id="EmailFeedback"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="DietaryNeed" id="dNeedLabel">Dietary Needs</label>
+                <input class="form-control" type="text" id="dNeed" name="dNeed" value="" />
+                <span class="text-danger field-validation-valid" id="dietNeedFeedback"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Birthday" id="birthdayLabel">Birthday</label>
+                <input class="form-control" type="date" id="birthday" name="birthday" value="" />
+                <span class="text-danger field-validation-valid" id="birthdayFeedBack"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Password" id="pWordLabel">Password</label>
+                <input class="form-control" type="password" id="pWord" name="pWord" value="" />
+                <span class="text-danger field-validation-valid" id="passwordFeedback"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="PassWordConfirm" id="pWordConfirmLabel">Confirm Password</label>
+                <input class="form-control" type="password" id="pWordConfirm" name="pwordConfirm" value="" />
+                <span class="text-danger field-validation-valid" id="passwordConfFeedback"></span>
+            </div>
+            <div id="formFeedback"></div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="~/js/registration.js">
+   
+</script>
+
+
 

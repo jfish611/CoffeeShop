@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    List<Product> Products = (List<Product>)ViewData["Products"];
 }
 
 <div class="text-center">
@@ -12,6 +13,15 @@
 
 
 <div class="text-center">
-    <h1 class="display-8">@Html.ActionLink("Register", "Registration", "Home")</h1>
+    <h1 class="display-8"> @Html.ActionLink("Register Here", "Registration", "Home")</h1>
+
+    <h1 class="display-8">613 Coffee Menu:</h1>
+    <ul>
+        @foreach (Product p in Products)
+        {
+            //VIDEO 2 13:00
+        }
+    </ul>
+
 </div>
 

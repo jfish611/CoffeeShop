@@ -1,8 +1,15 @@
-﻿
+﻿@model User
 @{
     ViewData["Title"] = "Confirmation";
+
 }
 
 
-<h1>Success. Thank you for registering @ViewData["firstName"] @ViewData["lastName"].</h1>
+<h1>Success. Thank you for registering, @ViewData["FirstName"] @ViewData["LastName"].</h1>
+
+<p>Details:</p>
+<p></p>
+<p><strong>Birthdate:</strong> @ViewData["dob"]</p>
+<p><strong>Dietary Need:</strong> @ViewData["Diet"]</p>
+<p><strong>Email:</strong> @ViewData["Email"]</p>
 
