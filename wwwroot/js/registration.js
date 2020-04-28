@@ -60,7 +60,7 @@ function validatelName() {
 
 function validateEmail(inputText) {
     let enteredEmail = document.querySelector("#Email").value;
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2, 3})+$/;
+    var mailformat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     let warning = '';
 
     if (!enteredEmail.match(mailformat)) {
@@ -109,16 +109,24 @@ function validatePassword() {
 
 
 function validateConfPassword() {
-    let enteredPassword = document.querySelector("#pWord").value;
+    let enteredPassword2 = document.querySelector("#pWord").value;
     let enteredConfPassword = document.querySelector("#pWordConfirm").value;
     let warning = '';
 
-    if (enteredPassword !== enteredConfPassword) {
+    if (enteredPassword2 !== enteredConfPassword) {
         warning += 'Confirm-password does not match';
-        return false;
     }
-    else {
+
+    if (warning == '') {
+        document.querySelector("#pWordConfirmLabel").classList.remove('red');
+        document.querySelector("#pWordConfirm").classList.remove('red-bg');
+        document.querySelector("#passwordConfFeedback").innerHTML = '';
         return true;
+    } else {
+        document.querySelector("#passwordConfFeedback").innerHTML = warning;
+        document.querySelector("#pWordConfirmLabel").classList.add('red');
+        document.querySelector("#pWordConfirm").classList.add('red-bg');
+        return false;
     }
 }
 

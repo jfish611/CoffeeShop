@@ -60,7 +60,7 @@ function validatelName() {
 
 function validateEmail(inputText) {
     let enteredEmail = document.querySelector("#Email").value;
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2, 3})+$/;
+    var mailformat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     let warning = '';
 
     if (!enteredEmail.match(mailformat)) {
@@ -84,6 +84,7 @@ function validateEmail(inputText) {
 
 function validatePassword() {
 
+    console.log("Got to validate password.js. Yay.")
 
     let enteredPassword = document.querySelector("#pWord").value;
     var passwordPattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/;
@@ -109,11 +110,11 @@ function validatePassword() {
 
 
 function validateConfPassword() {
-    let enteredPassword = document.querySelector("#pWord").value;
+    let enteredPassword2 = document.querySelector("#pWord").value;
     let enteredConfPassword = document.querySelector("#pWordConfirm").value;
     let warning = '';
 
-    if (enteredPassword !== enteredConfPassword) {
+    if (enteredPassword2 !== enteredConfPassword) {
         warning += 'Confirm-password does not match';
         return false;
     }
